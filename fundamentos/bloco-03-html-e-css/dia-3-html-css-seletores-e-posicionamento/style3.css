@@ -1,0 +1,14 @@
+<style>
+h1, p {
+    text-align: right;
+}
+li:hover {
+    background-color: blue;
+}
+li:active{
+    font-family: fantasy, sans-serif;
+}
+ul, ol{
+    list-style: none;
+}
+</style>
