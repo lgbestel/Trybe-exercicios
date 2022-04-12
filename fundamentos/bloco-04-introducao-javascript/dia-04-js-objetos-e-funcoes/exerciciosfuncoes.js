@@ -20,17 +20,44 @@
 
 // console.log(palindromo("alala"));
 
-// 2
-function maiorValor(arrayDeInteiros) {
-    let valorAtual = 0;
 
-    for(let number in arrayDeInteiros) {
-        valorAtual = arrayDeInteiros[number];
-        if(valorAtual > number){
-            
-        }
+// // 1 com for
+function palindromo(string) {
+
+    let reversedString = "";
+
+    for(let i = string.length - 1; i >= 0; i -= 1) {
+    reversedString += string[i];
+    console.log(reversedString);
     }
 
-
+// }
+// if (reversedString == string) {
+//     return true;
+// } else {
+//     return false;
 }
-console.log(maiorValor([1, 2, 3, 4 ,6, 5]));
+
+console.log(palindromo("casa"));
+console.log(reversedString);
+// // 2
+
+// function biggerValue(arrayInteiros) {
+//     let currentIndex = 0;
+
+//     for(let index in arrayInteiros) {
+//         if (arrayInteiros[index] > arrayInteiros[currentIndex]){
+//         currentIndex = index
+//         }
+//     }
+//     return currentIndex;
+// }
+
+// console.log(biggerValue([2, 3, 6, 7, 10, 1]));
+let string = "casa";
+let reversedString = "";
+
+    for(let i = string.length - 1; i >= 0; i -= 1) {
+    reversedString += string[i];
+    console.log(reversedString);
+    }
