@@ -17,7 +17,7 @@ html {
         margin-top: 2%;
     }
  
-    header p {
+    header h1 {
         font-size: 1.4rem;
         font-weight: bold;
     }
@@ -28,6 +28,10 @@ html {
         list-style: none;
         padding: 1%;
         justify-content: space-evenly;    
+    }
+
+    aside ul li{
+        list-style: none;
     }
 
     h2 {
@@ -54,10 +58,82 @@ html {
     }
 }
 
-@media screen and (min-width: 400px and max-width: 600px) {
+@media screen and (min-width: 400px) and (max-width: 600px) {
+    * {
+        margin: 0;
+        padding: 0; 
+    }
 
+    body {
+        margin-left: 5%;
+        margin-top: 5%;
+    }
+ 
+    header h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        background-color: red;
+        margin: 0;
+        background-color: beige;
+        box-shadow: 1px 1px 2px rgb(189, 189, 189);
+    }
+
+    header nav {
+        background-color: beige;
+        box-shadow: 1px 1px 2px rgb(189, 189, 189);
+        margin-top: 2%;
+    }
+
+    header nav ul{
+        margin: 0;
+        display: flex;
+        list-style: none;
+        padding: 1%;
+        justify-content: flex-start;    
+    }
+
+    header nav ul li{
+        margin: 10px; 
+    }
+
+    aside ul li{
+        list-style: none;
+    }
+
+    .aside-one, .aside-two {
+        background-color: beige;
+        box-shadow: 1px 1px 2px rgb(189, 189, 189);
+    }
+
+    h2 {
+        text-align: center;
+        margin: 3% 0;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    .main-content {
+        background-color: beige;
+        box-shadow: 1px 1px 2px rgb(189, 189, 189);
+    }
+
+    article p {
+        text-align: justify;
+        margin: 2%;
+    }
+
+    footer h3 {
+        font-size: 0.8rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
 }
 
-@media screen and (min-width: 600 px) {
+@media screen and (min-width: 600px) {
 
 }
