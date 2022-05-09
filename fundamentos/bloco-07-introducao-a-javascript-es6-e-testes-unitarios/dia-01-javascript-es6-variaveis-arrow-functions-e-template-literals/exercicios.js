@@ -60,3 +60,22 @@ const biggestWord = (string) => {
   return word;
 }; 
 console.log(biggestWord ('abaa aaca abac casasca a'));
+
+//2.4
+const skills = ['js', 'css', 'html', 'bootstrap', 'node.js']
+
+const frase = `Tryber x aqui!
+Minhas cinco principais habilidades são:
+${skills.sort()}
+#goTrybe`;
+
+const switchChar = string => {
+  const splittedFrase = frase.split(' ');
+  for (let i = 0; i < splittedFrase.length; i += 1) {
+    if (splittedFrase[i] === 'x') {
+      splittedFrase[i] = string;
+    }
+  }
+  return splittedFrase.join(' ');
+} 
+console.log(switchChar('Luiz'));
