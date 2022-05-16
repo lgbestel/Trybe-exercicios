@@ -24,14 +24,14 @@ const battleMembers = { mage, warrior, dragon };
 const dragonDamage = () => {
   return Math.round(Math.random() * (dragon.strength - 15)) + 15;
 }
-console.log(dragonDamage());
+// console.log('dragondamage:' + dragonDamage());
 
 const warriorDamage = () => {
   const warriorStrength = warrior.strength;
   const warriorWeaponDamage = warriorStrength * warrior.weaponDmg;
   return Math.round(Math.random() * (warriorWeaponDamage - warriorStrength)) + warriorStrength;
 }
-console.log(warriorDamage());
+// console.log('warriordamage:' + warriorDamage());
 
 const mageDamageAndManaWaste = () => {
   let mageDamage = Math.round(Math.random() * ((mage.intelligence * 2) - mage.intelligence)) + mage.intelligence;
@@ -50,4 +50,30 @@ const mageDamageAndManaWaste = () => {
     manaWaste: manaWaste
   }
 }
-console.log(mageDamageAndManaWaste());
+// console.log(mageDamageAndManaWaste());
+
+const gameActions = {
+  warriorTurn: (callback) => {
+    let warriorAttack = callback();
+    dragon.healthPoints = dragon.healthPoints - warriorAttack;
+    warrior.damage = warriorAttack;
+  },
+  mageTurn: (callback) => {
+    let mageAttack = callback();
+    dragon.healthPoints = dragon.healthPoints - mageAttack.damage;
+    mage.damage = mageAttack.damage;
+    mage.mana = mage.mana - mageAttack.manaWaste;
+  },
+  dragonTurn: (callback) => {
+    let dragonAttack = callback();
+    mage.healthPoints = mage.healthPoints - dragonAttack;
+    warrior.healthPoints = mage.healthPoints - dragonAttack;
+    dragon.damage = dragonAttack;
+  },
+  endOfTurn: () => battleMembers,
+}
+
+gameActions.warriorTurn(warriorDamage);
+gameActions.mageTurn(mageDamageAndManaWaste);
+gameActions.dragonTurn(dragonDamage);
+console.log(gameActions.endOfTurn());
