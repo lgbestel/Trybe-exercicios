@@ -108,5 +108,10 @@ function someBookWasReleaseOnThe80s() {
 
 function authorUnique() {
   // escreva seu código aqui
-  
+  books.forEach((book) => {
+    let currentBirthYear = books[0].author.birthYear;
+    if (book.author.birthYear === currentBirthYear) {
+      return false;
+    }
+  })
 }
