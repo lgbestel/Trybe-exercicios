@@ -6,7 +6,7 @@ const arrays = [
 ];
 
 function flatten() {
-  return arrays.reduce((acc, curr) => acc.concat(curr));
+  return arrays.reduce((acc, curr) => acc.concat(curr), []);
 }
 // console.log(flatten());
 
@@ -93,7 +93,10 @@ function averageAge() {
 function longestNamedBook() {
   // escreva seu código aqui
   return books.reduce((acc, curr) => {
-    acc.length > curr.name.length ? acc : curr
+    if (acc.name.length > curr.name.length) {
+      return acc;
+    }
+    return curr;
   })
 }
 // console.log(longestNamedBook());
