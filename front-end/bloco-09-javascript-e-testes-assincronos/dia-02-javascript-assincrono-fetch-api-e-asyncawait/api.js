@@ -10,10 +10,10 @@ const coinLi = (data) => {
     })
 }
 
-const arrCoins = () => {
+const arrCoins = (callback) => {
   const coinsArray = fetch(url)
     .then((response) => response.json())
-    .then((data) => coinLi(data.data))
+    .then((data) => callback(data.data))
     .catch((error) => console.log('deu ruim :', error));
 };
-arrCoins();
+arrCoins(coinLi);
