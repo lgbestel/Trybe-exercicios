@@ -39,16 +39,16 @@
       };
 
       const reducer = (state = INITIAL_STATE, action) => {
-        switch(state.type) {
+        switch(action.type) {
           case 'NEXT_COLOR':
             return {
               ...state,
-              index: (state.index % state.colors.length) + 1,
+              index: state.index === state.colors.length - 1 ? state.index = 0 : state.index + 1, 
             };
           case 'PREVIOUS_COLOR':
           return {
             ...state,
-            index: (state.index % state.colors.length) - 1,
+            index: state.index === 0 ? state.index = state.colors.length - 1 : state.index - 1,
           };
           default:
             return state;
@@ -61,16 +61,19 @@
       const btnPrev = document.getElementById('previous');
 
       btnNext.addEventListener('click', () => {
-        store.dispatch({type: 'NEXT_COLOR'})
+        store.dispatch({type: 'NEXT_COLOR'});
       });
       btnPrev.addEventListener('click', () => {
-        store.dispatch({type: 'PREVIOUS_COLOR'})
+        store.dispatch({type: 'PREVIOUS_COLOR'});
       });
 
       store.subscribe(() => {
         const { colors, index } = store.getState();
         const color = document.getElementById('value');
         color.innerHTML = colors[index];
+        const container = document.getElementById('container');
+        container.style.backgroundColor = colors[index];
+        console.log(index);
 
       });
 
